@@ -74,6 +74,6 @@ RUN for f in "/home/user" "/etc/passwd" "/etc/group" "/projects"; do\
         > /home/user/group.template && \
         sudo sed -ri 's/StrictModes yes/StrictModes no/g' /etc/ssh/sshd_config
 COPY ["entrypoint.sh","/home/user/entrypoint.sh"]
-RUN chmod +x /home/user/entrypoint.sh
+RUN sudo chmod a+x /home/user/entrypoint.sh
 ENTRYPOINT ["/home/user/entrypoint.sh"]
 CMD tail -f /dev/null
